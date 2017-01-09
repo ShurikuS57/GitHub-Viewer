@@ -28,7 +28,7 @@ public class SearchNameFragment extends Fragment implements SearchNameContract.V
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, Bundle savedInstanceState) {
-        View root = inflater.inflate(R.layout.search_name_frag, container, false);
+        View root = inflater.inflate(R.layout.fragment_search_name, container, false);
 
         return root;
     }

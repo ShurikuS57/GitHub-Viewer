@@ -17,7 +17,7 @@ public class SearchNameActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.search_name_act);
+        setContentView(R.layout.activity_search_name);
 
         SearchNameFragment searchNameFragment = (SearchNameFragment) getFragmentManager()
                 .findFragmentById(R.id.contentFrame);
