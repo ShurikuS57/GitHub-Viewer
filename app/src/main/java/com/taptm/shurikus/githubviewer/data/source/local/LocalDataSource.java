@@ -16,4 +16,9 @@ public class LocalDataSource implements DataSource {
         checkNotNull(context);
         mDbHelper = new DbHelper(context);
     }
+
+    @Override
+    public void searchUsers(String strSearch, @NonNull LoadUsersCallback callback) {
+
+    }
 }

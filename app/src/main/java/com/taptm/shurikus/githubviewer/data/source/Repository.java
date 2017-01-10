@@ -1,5 +1,7 @@
 package com.taptm.shurikus.githubviewer.data.source;
 
+import android.support.annotation.NonNull;
+
 import javax.inject.Inject;
 import javax.inject.Singleton;
 
@@ -17,4 +19,8 @@ public class Repository implements DataSource {
         mLocalDataSource = tasksLocalDataSource;
     }
 
+    @Override
+    public void searchUsers(String strSearch, @NonNull LoadUsersCallback callback) {
+        mRemoteDataSource.searchUsers(strSearch, callback);
+    }
 }
