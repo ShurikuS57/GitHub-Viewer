@@ -1,7 +1,12 @@
 package com.taptm.shurikus.githubviewer.searchname;
 
 
+import com.taptm.shurikus.githubviewer.R;
+import com.taptm.shurikus.githubviewer.data.User;
+import com.taptm.shurikus.githubviewer.data.source.DataSource;
 import com.taptm.shurikus.githubviewer.data.source.Repository;
+
+import java.util.List;
 
 import javax.inject.Inject;
 
@@ -26,6 +31,32 @@ public class SearchNamePresenter implements SearchNameContract.Presenter {
 
     @Override
     public void start() {
+
+    }
+
+    @Override
+    public void searchUser(String strSearch) {
+        if(strSearch.equals("")){
+            mSearchNameView.showMessage(R.string.msg_search_not_be_empty);
+            return;
+        }
+        mRepository.searchUsers(strSearch, new DataSource.LoadUsersCallback() {
+
+            @Override
+            public void onUsersLoaded(List<User> users) {
+                mSearchNameView.showUsers(users);
+            }
+
+            @Override
+            public void onDataNotAvailable() {
+                mSearchNameView.showMessage(R.string.msg_nothing_found);
+                mSearchNameView.clearAdapter();
+            }
+        });
+    }
+
+    @Override
+    public void openRepos(User user) {
 
     }
 }

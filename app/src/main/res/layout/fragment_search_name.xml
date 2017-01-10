@@ -31,7 +31,7 @@
         android:layout_marginEnd="8dp"
         android:contentDescription="@string/text_search_name"/>
 
-    <android.support.v7.widget.RecyclerView
+    <ListView
         android:id="@+id/recycleView_result_name"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
