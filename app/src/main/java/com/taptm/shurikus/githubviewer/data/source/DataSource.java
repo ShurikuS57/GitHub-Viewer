@@ -16,7 +16,7 @@ public interface DataSource {
         void onDataNotAvailable();
     }
 
-    void searchUsers(String strSearch, @NonNull LoadUsersCallback callback);
+    void searchUsers(@NonNull final String strSearch, @NonNull final LoadUsersCallback callback);
 
 
 }

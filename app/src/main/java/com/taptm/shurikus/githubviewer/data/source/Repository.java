@@ -5,6 +5,8 @@ import android.support.annotation.NonNull;
 import javax.inject.Inject;
 import javax.inject.Singleton;
 
+import static dagger.internal.Preconditions.checkNotNull;
+
 @Singleton
 public class Repository implements DataSource {
 
@@ -20,7 +22,9 @@ public class Repository implements DataSource {
     }
 
     @Override
-    public void searchUsers(String strSearch, @NonNull LoadUsersCallback callback) {
+    public void searchUsers(@NonNull final String strSearch, @NonNull final LoadUsersCallback callback) {
+        checkNotNull(strSearch);
+        checkNotNull(callback);
         mRemoteDataSource.searchUsers(strSearch, callback);
     }
 }
