@@ -13,7 +13,7 @@ public class FakeRemoteDataSource implements DataSource {
     private List<User> users = new ArrayList<>();
 
     public FakeRemoteDataSource() {
-        users = getFakeUsers();
+        users = FakeData.getFakeUsers();
     }
 
     @Override
@@ -32,21 +32,4 @@ public class FakeRemoteDataSource implements DataSource {
         }
     }
 
-    public static List<User> getFakeUsers(){
-        List<User> users = new ArrayList<>();
-
-        users.add(new User(22312214, "shurik236", "https://avatars.githubusercontent.com/u/22312214?v=3",
-                "https://api.github.com/users/shurik236", "https://github.com/shurik236",
-                "https://api.github.com/users/shurik236/repos"));
-
-        users.add(new User(1052889, "shurik4545", "https://avatars.githubusercontent.com/u/1052889?v=3",
-                "https://api.github.com/users/shurik4545", "https://github.com/shurik4545",
-                "https://api.github.com/users/shurik4545/repos"));
-
-        users.add(new User(3917774, "shumaojie", "https://avatars.githubusercontent.com/u/3917774?v=3",
-                "https://api.github.com/users/shumaojie", "https://github.com/shumaojie",
-                "https://api.github.com/users/shumaojie/repos"));
-
-        return users;
-    }
 }

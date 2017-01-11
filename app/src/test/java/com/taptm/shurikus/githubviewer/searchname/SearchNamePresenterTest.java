@@ -2,7 +2,7 @@ package com.taptm.shurikus.githubviewer.searchname;
 
 
 import com.taptm.shurikus.githubviewer.R;
-import com.taptm.shurikus.githubviewer.data.FakeRemoteDataSource;
+import com.taptm.shurikus.githubviewer.data.FakeData;
 import com.taptm.shurikus.githubviewer.data.User;
 import com.taptm.shurikus.githubviewer.data.source.DataSource;
 import com.taptm.shurikus.githubviewer.data.source.Repository;
@@ -14,11 +14,9 @@ import org.mockito.Captor;
 import org.mockito.Mock;
 import org.mockito.MockitoAnnotations;
 
-import java.util.ArrayList;
 import java.util.List;
 
 import static org.mockito.Matchers.eq;
-import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;
 
@@ -45,7 +43,7 @@ public class SearchNamePresenterTest {
 
         when(mView.isActive()).thenReturn(true);
 
-        users = FakeRemoteDataSource.getFakeUsers();
+        users = FakeData.getFakeUsers();
 
     }
 
