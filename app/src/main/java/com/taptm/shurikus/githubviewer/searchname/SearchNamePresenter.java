@@ -1,6 +1,8 @@
 package com.taptm.shurikus.githubviewer.searchname;
 
 
+import android.content.Intent;
+
 import com.taptm.shurikus.githubviewer.R;
 import com.taptm.shurikus.githubviewer.data.User;
 import com.taptm.shurikus.githubviewer.data.source.DataSource;
@@ -57,6 +59,11 @@ public class SearchNamePresenter implements SearchNameContract.Presenter {
 
     @Override
     public void openRepos(User user) {
-
+        String repoUrl = user.getRepos_url();
+        if(repoUrl != null && !repoUrl.equals("")){
+            mSearchNameView.openRepoActivity(repoUrl);
+        }else {
+            mSearchNameView.showMessage(R.string.msg_no_reference_repository);
+        }
     }
 }

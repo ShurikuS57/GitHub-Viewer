@@ -1,6 +1,7 @@
 package com.taptm.shurikus.githubviewer.searchname;
 
 import android.app.Fragment;
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
@@ -18,6 +19,7 @@ import android.widget.Toast;
 
 import com.taptm.shurikus.githubviewer.R;
 import com.taptm.shurikus.githubviewer.data.User;
+import com.taptm.shurikus.githubviewer.repo.ReposActivity;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -87,6 +89,13 @@ public class SearchNameFragment extends Fragment implements SearchNameContract.V
     @Override
     public void clearAdapter() {
         mListAdapter.replaceData(new ArrayList<User>(0));
+    }
+
+    @Override
+    public void openRepoActivity(String urlRepo) {
+        Intent intent = new Intent(getActivity(), ReposActivity.class);
+        intent.putExtra(ReposActivity.EXTRA_URL_REPOS, urlRepo);
+        getActivity().startActivity(intent);
     }
 
     @Override
