@@ -100,8 +100,7 @@ public class SearchNameFragment extends Fragment implements SearchNameContract.V
 
     @Override
     public void showMessage(@StringRes int resourceId) {
-        String msg = getString(resourceId);
-        Toast.makeText(getActivity(), msg, Toast.LENGTH_LONG).show();
+        Toast.makeText(getActivity(), resourceId, Toast.LENGTH_LONG).show();
     }
 
     UserItemListener mUserItemListener = new UserItemListener() {
