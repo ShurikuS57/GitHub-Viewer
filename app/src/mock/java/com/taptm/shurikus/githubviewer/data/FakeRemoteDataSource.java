@@ -32,4 +32,10 @@ public class FakeRemoteDataSource implements DataSource {
         }
     }
 
+    @Override
+    public void getRepos(@NonNull String urlRepos, @NonNull LoadReposCallback callback) {
+        List<Repo> repos = FakeData.getFakeRepo();
+        callback.onReposLoaded(repos);
+    }
+
 }

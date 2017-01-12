@@ -27,4 +27,12 @@ public class Repository implements DataSource {
         checkNotNull(callback);
         mRemoteDataSource.searchUsers(strSearch, callback);
     }
+
+    @Override
+    public void getRepos(@NonNull String urlRepos, @NonNull LoadReposCallback callback) {
+        checkNotNull(urlRepos);
+        checkNotNull(callback);
+
+        mRemoteDataSource.getRepos(urlRepos, callback);
+    }
 }

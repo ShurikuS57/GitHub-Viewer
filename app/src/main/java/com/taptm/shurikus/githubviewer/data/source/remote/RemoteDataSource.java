@@ -10,4 +10,9 @@ public class RemoteDataSource implements DataSource {
     public void searchUsers(String strSearch, @NonNull LoadUsersCallback callback) {
 
     }
+
+    @Override
+    public void getRepos(@NonNull String urlRepos, @NonNull LoadReposCallback callback) {
+
+    }
 }
