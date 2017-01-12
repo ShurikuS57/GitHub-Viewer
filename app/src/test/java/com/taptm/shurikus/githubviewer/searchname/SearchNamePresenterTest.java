@@ -65,4 +65,24 @@ public class SearchNamePresenterTest {
         verify(mView).showUsers(users);
     }
 
+    @Test
+    public void openEmptyReposUrl_CallViewToDisplay(){
+        User user = users.get(0);
+        user.setRepos_url(null);
+
+        mPresenter.openRepos(user);
+        verify(mView).showMessage(R.string.msg_no_reference_repository);
+
+        user.setRepos_url("");
+        verify(mView).showMessage(R.string.msg_no_reference_repository);
+    }
+
+    @Test
+    public void openNoEmptyReposUrl_CallViewToDisplay(){
+        User user = users.get(0);
+
+        mPresenter.openRepos(user);
+        verify(mView).openRepoActivity(user.getRepos_url());
+    }
+
 }
