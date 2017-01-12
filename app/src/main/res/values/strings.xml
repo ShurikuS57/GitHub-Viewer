@@ -4,4 +4,9 @@
     <string name="msg_search_not_be_empty">The search string must not be empty.</string>
     <string name="msg_nothing_found">Nothing has been found.</string>
     <string name="msg_no_reference_repository">There is no reference to the repository.</string>
+    <string name="msg_no_data_from_server">No data from the server.</string>
+    <string name="msg_url_repos_no_validate">Url of the repository is not valid</string>
+
+    <string name="text_zero">0</string>
+    <string name="text_star_description">Star description</string>
 </resources>
