@@ -61,6 +61,7 @@ dependencies {
     compile 'com.android.support.constraint:constraint-layout:1.0.0-beta4'
 
     compile 'com.squareup.retrofit2:retrofit:2.1.0'
+    compile 'com.squareup.retrofit2:converter-gson:2.1.0'
 
     // Dagger dependencies
     apt 'com.google.dagger:dagger-compiler:2.2'
