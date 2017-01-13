@@ -1,8 +1,6 @@
 package com.taptm.shurikus.githubviewer.repo;
 
 
-import android.webkit.URLUtil;
-
 import com.taptm.shurikus.githubviewer.R;
 import com.taptm.shurikus.githubviewer.data.Repo;
 import com.taptm.shurikus.githubviewer.data.source.DataSource;
@@ -37,7 +35,7 @@ public class ReposPresenter implements ReposContract.Presenter {
 
     @Override
     public void openReposForStrUrl(String urlRepos) {
-        if(!validateRepoUrl(urlRepos)){
+        if(!validateString(urlRepos)){
             mRepoView.showMessage(R.string.msg_url_repos_no_validate);
             return;
         }
@@ -59,16 +57,15 @@ public class ReposPresenter implements ReposContract.Presenter {
     @Override
     public void openRepoCklicked(Repo repo) {
         String urlRepo = repo.getHtml_url();
-        if(validateRepoUrl(urlRepo)){
+        if(validateString(urlRepo)){
             mRepoView.openRepoUrl(repo);
         }else {
             mRepoView.showMessage(R.string.msg_url_repos_no_validate);
         }
     }
 
-    private boolean validateRepoUrl(String urlRepos){
-        if(urlRepos != null && !urlRepos.equals("")
-                && URLUtil.isValidUrl(urlRepos)){
+    private boolean validateString(String urlRepos){
+        if(urlRepos != null && !urlRepos.equals("")){
             return true;
         }else {
             return false;

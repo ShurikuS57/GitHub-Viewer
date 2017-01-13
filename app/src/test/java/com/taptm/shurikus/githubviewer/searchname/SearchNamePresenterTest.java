@@ -68,7 +68,7 @@ public class SearchNamePresenterTest {
     @Test
     public void openEmptyReposUrl_CallViewToDisplay(){
         User user = users.get(0);
-        user.setRepos_url(null);
+        user.setLogin(null);
 
         mPresenter.openRepos(user);
         verify(mView).showMessage(R.string.msg_no_reference_repository);
@@ -82,7 +82,7 @@ public class SearchNamePresenterTest {
         User user = users.get(0);
 
         mPresenter.openRepos(user);
-        verify(mView).openRepoActivity(user.getRepos_url());
+        verify(mView).openRepoActivity(user.getLogin());
     }
 
 }

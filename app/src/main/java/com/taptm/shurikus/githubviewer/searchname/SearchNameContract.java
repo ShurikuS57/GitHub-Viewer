@@ -19,7 +19,7 @@ public interface SearchNameContract {
 
         void clearAdapter();
 
-        void openRepoActivity(String urlRepo);
+        void openRepoActivity(String userName);
 
         void showMessage(@StringRes int resourceId);
 

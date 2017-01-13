@@ -6,7 +6,6 @@ import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.annotation.StringRes;
-import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -92,9 +91,9 @@ public class SearchNameFragment extends Fragment implements SearchNameContract.V
     }
 
     @Override
-    public void openRepoActivity(String urlRepo) {
+    public void openRepoActivity(String userName) {
         Intent intent = new Intent(getActivity(), ReposActivity.class);
-        intent.putExtra(ReposActivity.EXTRA_URL_REPOS, urlRepo);
+        intent.putExtra(ReposActivity.EXTRA_USER_NAME, userName);
         getActivity().startActivity(intent);
     }
 

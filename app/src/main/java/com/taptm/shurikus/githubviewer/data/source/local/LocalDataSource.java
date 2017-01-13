@@ -23,7 +23,7 @@ public class LocalDataSource implements DataSource {
     }
 
     @Override
-    public void getRepos(@NonNull String urlRepos, @NonNull LoadReposCallback callback) {
+    public void getRepos(@NonNull String userName, @NonNull LoadReposCallback callback) {
 
     }
 }

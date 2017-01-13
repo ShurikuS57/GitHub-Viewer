@@ -59,9 +59,9 @@ public class SearchNamePresenter implements SearchNameContract.Presenter {
 
     @Override
     public void openRepos(User user) {
-        String repoUrl = user.getRepos_url();
-        if(repoUrl != null && !repoUrl.equals("")){
-            mSearchNameView.openRepoActivity(repoUrl);
+        String userName = user.getLogin();
+        if(userName != null && !userName.equals("")){
+            mSearchNameView.openRepoActivity(userName);
         }else {
             mSearchNameView.showMessage(R.string.msg_no_reference_repository);
         }

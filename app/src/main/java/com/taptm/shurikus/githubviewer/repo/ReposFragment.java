@@ -26,12 +26,12 @@ public class ReposFragment extends Fragment implements ReposContract.View {
 
     private ReposContract.Presenter mPresenter;
 
-    private static String mUrlRepos;
+    private static String mUserName;
 
     private RepoAdapter mRepoAdapter;
 
-    public static ReposFragment newInstance(String urlRepos) {
-        mUrlRepos = urlRepos;
+    public static ReposFragment newInstance(String userName) {
+        mUserName = userName;
         return new ReposFragment();
     }
 
@@ -54,7 +54,7 @@ public class ReposFragment extends Fragment implements ReposContract.View {
     public void onResume() {
         super.onResume();
         mPresenter.start();
-        mPresenter.openReposForStrUrl(mUrlRepos);
+        mPresenter.openReposForStrUrl(mUserName);
     }
 
     @Override

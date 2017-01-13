@@ -29,10 +29,10 @@ public class Repository implements DataSource {
     }
 
     @Override
-    public void getRepos(@NonNull String urlRepos, @NonNull LoadReposCallback callback) {
-        checkNotNull(urlRepos);
+    public void getRepos(@NonNull String userName, @NonNull LoadReposCallback callback) {
+        checkNotNull(userName);
         checkNotNull(callback);
 
-        mRemoteDataSource.getRepos(urlRepos, callback);
+        mRemoteDataSource.getRepos(userName, callback);
     }
 }

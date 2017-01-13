@@ -12,7 +12,7 @@ import javax.inject.Inject;
 
 public class ReposActivity extends AppCompatActivity {
 
-    public static final String EXTRA_URL_REPOS = "URL_REPOS";
+    public static final String EXTRA_USER_NAME = "USER_NAME";
 
     @Inject
     ReposPresenter mReposPresenter;
@@ -22,7 +22,7 @@ public class ReposActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_repos);
 
-        String urlRepos = getIntent().getStringExtra(EXTRA_URL_REPOS);
+        String urlRepos = getIntent().getStringExtra(EXTRA_USER_NAME);
 
         ReposFragment reposFragment = (ReposFragment) getFragmentManager()
                 .findFragmentById(R.id.contentFrame);

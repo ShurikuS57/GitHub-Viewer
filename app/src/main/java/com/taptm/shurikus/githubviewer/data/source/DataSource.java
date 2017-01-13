@@ -26,6 +26,6 @@ public interface DataSource {
 
     void searchUsers(@NonNull final String strSearch, @NonNull final LoadUsersCallback callback);
 
-    void getRepos(@NonNull final String urlRepos, @NonNull final LoadReposCallback callback);
+    void getRepos(@NonNull final String userName, @NonNull final LoadReposCallback callback);
 
 }
