@@ -1,4 +1,4 @@
-<resources>
+    <resources>
     <string name="app_name">Git Hub Viewer</string>
     <string name="text_search_name">Search name</string>
     <string name="msg_search_not_be_empty">The search string must not be empty.</string>
@@ -9,4 +9,6 @@
 
     <string name="text_zero">0</string>
     <string name="text_star_description">Star description</string>
+
+    <string name="title_search_user">Search user</string>
 </resources>

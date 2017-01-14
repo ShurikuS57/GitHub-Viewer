@@ -1,7 +1,9 @@
 package com.taptm.shurikus.githubviewer.searchname;
 
+import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.widget.Toolbar;
 
 import com.taptm.shurikus.githubviewer.GitHubViewerApplication;
 import com.taptm.shurikus.githubviewer.R;
@@ -19,6 +21,8 @@ public class SearchNameActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_search_name);
 
+        initToolbar();
+
         SearchNameFragment searchNameFragment = (SearchNameFragment) getFragmentManager()
                 .findFragmentById(R.id.contentFrame);
         if(searchNameFragment == null){
@@ -33,5 +37,10 @@ public class SearchNameActivity extends AppCompatActivity {
                         .getRepositoryComponent())
                 .build().inject(this);
 
+    }
+
+    private void initToolbar() {
+        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
+        toolbar.setTitle(R.string.title_search_user);
     }
 }
