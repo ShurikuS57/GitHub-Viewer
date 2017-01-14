@@ -3,6 +3,7 @@ package com.taptm.shurikus.githubviewer.repo;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.Toolbar;
 
 import com.taptm.shurikus.githubviewer.GitHubViewerApplication;
 import com.taptm.shurikus.githubviewer.R;
@@ -22,6 +23,8 @@ public class ReposActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_repos);
 
+        initToolBar();
+
         String urlRepos = getIntent().getStringExtra(EXTRA_USER_NAME);
 
         ReposFragment reposFragment = (ReposFragment) getFragmentManager()
@@ -38,5 +41,10 @@ public class ReposActivity extends AppCompatActivity {
                 .getRepositoryComponent())
                 .build()
                 .inject(this);
+    }
+
+    private void initToolBar() {
+        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
+        toolbar.setTitle(R.string.title_repository_list);
     }
 }
