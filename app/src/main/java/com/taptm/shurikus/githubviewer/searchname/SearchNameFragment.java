@@ -1,6 +1,7 @@
 package com.taptm.shurikus.githubviewer.searchname;
 
 import android.app.Fragment;
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
@@ -12,10 +13,12 @@ import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.EditText;
 import android.widget.ImageButton;
+import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.squareup.picasso.Picasso;
 import com.taptm.shurikus.githubviewer.R;
 import com.taptm.shurikus.githubviewer.data.User;
 import com.taptm.shurikus.githubviewer.repo.ReposActivity;
@@ -45,7 +48,7 @@ public class SearchNameFragment extends Fragment implements SearchNameContract.V
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        mListAdapter = new UsersAdapter(new ArrayList<User>(0),  mUserItemListener);
+        mListAdapter = new UsersAdapter(getActivity(), new ArrayList<User>(0),  mUserItemListener);
     }
 
     @Nullable
@@ -111,11 +114,14 @@ public class SearchNameFragment extends Fragment implements SearchNameContract.V
 
     private static class UsersAdapter extends BaseAdapter {
 
+        private Context mContext;
+
         private List<User> mUsers;
 
         private UserItemListener mItemListener;
 
-        public UsersAdapter(List<User> mUsers, UserItemListener mItemListener) {
+        public UsersAdapter(Context context, List<User> mUsers, UserItemListener mItemListener) {
+            this.mContext = context;
             this.mUsers = mUsers;
             this.mItemListener = mItemListener;
         }
@@ -156,6 +162,9 @@ public class SearchNameFragment extends Fragment implements SearchNameContract.V
 
             TextView textLogin = (TextView) rowView.findViewById(R.id.text_item_login);
             textLogin.setText(user.getLogin());
+
+            ImageView imageUser  = (ImageView) rowView.findViewById(R.id.image_item_user);
+            Picasso.with(mContext).load(user.getAvatar_url()).into(imageUser);
 
             rowView.setOnClickListener(new View.OnClickListener() {
                 @Override
