@@ -89,7 +89,7 @@ public class ReposFragment extends Fragment implements ReposContract.View {
     RepoItemListener mRepoItemListener = new RepoItemListener() {
         @Override
         public void onRepoClick(Repo clickedRepo) {
-            mPresenter.openRepoCklicked(clickedRepo);
+            mPresenter.openRepoClicked(clickedRepo);
         }
     };
 

@@ -55,7 +55,7 @@ public class ReposPresenter implements ReposContract.Presenter {
     }
 
     @Override
-    public void openRepoCklicked(Repo repo) {
+    public void openRepoClicked(Repo repo) {
         String urlRepo = repo.getHtml_url();
         if(validateString(urlRepo)){
             mRepoView.openRepoUrl(repo);

@@ -40,6 +40,8 @@ public class FakeRemoteDataSource implements DataSource {
             if(users.get(i).getLogin().equals(userName)){
                 callback.onReposLoaded(repos);
                 return;
+            }else {
+                callback.onDataNotAvailable();
             }
         }
     }

@@ -3,6 +3,7 @@ package com.taptm.shurikus.githubviewer.repo;
 
 import com.taptm.shurikus.githubviewer.R;
 import com.taptm.shurikus.githubviewer.data.Repo;
+import com.taptm.shurikus.githubviewer.data.User;
 import com.taptm.shurikus.githubviewer.data.source.DataSource;
 import com.taptm.shurikus.githubviewer.data.source.Repository;
 import com.taptm.shurikus.githubviewer.data.source.remote.FakeData;
@@ -16,6 +17,7 @@ import org.mockito.MockitoAnnotations;
 
 import java.util.List;
 
+import static org.mockito.Matchers.eq;
 import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;
 
@@ -53,5 +55,42 @@ public class RepoPresenterTest {
         verify(mView).showMessage(R.string.msg_url_repos_no_validate);
     }
 
+    @Test
+    public void openValidateUserRepos(){
+        User user = FakeData.getFakeUsers().get(0);
+        String login = user.getLogin();
+
+        mRepoPresenter.openReposFromUserName(login);
+        verify(mRepository).getRepos(eq(login), mLoadReposCallbackCaptor.capture());
+        mLoadReposCallbackCaptor.getValue().onReposLoaded(FakeData.getFakeRepo());
+
+    }
+
+    @Test
+    public void openInvalidateUserRepos(){
+        String loseLogin = "fake_login";
+
+        mRepoPresenter.openReposFromUserName(loseLogin);
+        verify(mRepository).getRepos(eq(loseLogin), mLoadReposCallbackCaptor.capture());
+        mLoadReposCallbackCaptor.getValue().onDataNotAvailable();
+    }
+
+    @Test
+    public void openValidateRepos(){
+        Repo repo = FakeData.getFakeRepo().get(0);
+        String repoUrl = repo.getHtml_url();
+
+        mRepoPresenter.openRepoClicked(repo);
+        verify(mView).openRepoUrl(repo);
+    }
+
+    @Test
+    public void openInvalidateRepos(){
+        Repo repo = FakeData.getFakeRepo().get(0);
+
+        repo.setHtml_url("");
+        mRepoPresenter.openRepoClicked(repo);
+        verify(mView).showMessage(R.string.msg_url_repos_no_validate);
+    }
 
 }

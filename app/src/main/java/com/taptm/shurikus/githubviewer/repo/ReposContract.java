@@ -25,7 +25,7 @@ public interface ReposContract {
 
         void openReposFromUserName(String userName);
 
-        void openRepoCklicked(Repo repo);
+        void openRepoClicked(Repo repo);
 
     }
 }
