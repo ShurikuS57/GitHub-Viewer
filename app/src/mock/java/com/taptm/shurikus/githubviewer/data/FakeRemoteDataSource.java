@@ -4,6 +4,7 @@ package com.taptm.shurikus.githubviewer.data;
 import android.support.annotation.NonNull;
 
 import com.taptm.shurikus.githubviewer.data.source.DataSource;
+import com.taptm.shurikus.githubviewer.data.source.remote.FakeData;
 
 import java.util.ArrayList;
 import java.util.List;

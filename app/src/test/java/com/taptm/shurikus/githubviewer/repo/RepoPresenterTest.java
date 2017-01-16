@@ -2,7 +2,7 @@ package com.taptm.shurikus.githubviewer.repo;
 
 
 import com.taptm.shurikus.githubviewer.R;
-import com.taptm.shurikus.githubviewer.data.FakeData;
+import com.taptm.shurikus.githubviewer.data.source.remote.FakeData;
 import com.taptm.shurikus.githubviewer.data.Repo;
 import com.taptm.shurikus.githubviewer.data.source.DataSource;
 import com.taptm.shurikus.githubviewer.data.source.Repository;
