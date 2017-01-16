@@ -23,7 +23,7 @@ public interface ReposContract {
 
     interface Presenter extends BasePresenter {
 
-        void openReposForStrUrl(String urlRepos);
+        void openReposFromUserName(String userName);
 
         void openRepoCklicked(Repo repo);
 

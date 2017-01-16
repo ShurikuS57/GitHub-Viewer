@@ -34,13 +34,13 @@ public class ReposPresenter implements ReposContract.Presenter {
     }
 
     @Override
-    public void openReposForStrUrl(String urlRepos) {
-        if(!validateString(urlRepos)){
+    public void openReposFromUserName(String userName) {
+        if(!validateString(userName)){
             mRepoView.showMessage(R.string.msg_url_repos_no_validate);
             return;
         }
 
-        mRepository.getRepos(urlRepos, new DataSource.LoadReposCallback() {
+        mRepository.getRepos(userName, new DataSource.LoadReposCallback() {
 
             @Override
             public void onReposLoaded(List<Repo> repos) {

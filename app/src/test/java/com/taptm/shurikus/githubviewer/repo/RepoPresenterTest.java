@@ -2,10 +2,10 @@ package com.taptm.shurikus.githubviewer.repo;
 
 
 import com.taptm.shurikus.githubviewer.R;
-import com.taptm.shurikus.githubviewer.data.source.remote.FakeData;
 import com.taptm.shurikus.githubviewer.data.Repo;
 import com.taptm.shurikus.githubviewer.data.source.DataSource;
 import com.taptm.shurikus.githubviewer.data.source.Repository;
+import com.taptm.shurikus.githubviewer.data.source.remote.FakeData;
 
 import org.junit.Before;
 import org.junit.Test;
@@ -16,7 +16,6 @@ import org.mockito.MockitoAnnotations;
 
 import java.util.List;
 
-import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;
 
@@ -50,7 +49,7 @@ public class RepoPresenterTest {
     public void openEmptyRepos_CallViewToDisplay(){
         String emptyUrlRepos = "";
 
-        mRepoPresenter.openReposForStrUrl(emptyUrlRepos);
+        mRepoPresenter.openReposFromUserName(emptyUrlRepos);
         verify(mView).showMessage(R.string.msg_url_repos_no_validate);
     }
 

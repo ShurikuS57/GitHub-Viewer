@@ -54,7 +54,7 @@ public class ReposFragment extends Fragment implements ReposContract.View {
     public void onResume() {
         super.onResume();
         mPresenter.start();
-        mPresenter.openReposForStrUrl(mUserName);
+        mPresenter.openReposFromUserName(mUserName);
     }
 
     @Override
