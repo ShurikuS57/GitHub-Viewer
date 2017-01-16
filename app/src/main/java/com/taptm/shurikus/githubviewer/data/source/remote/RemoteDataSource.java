@@ -3,8 +3,8 @@ package com.taptm.shurikus.githubviewer.data.source.remote;
 
 import android.support.annotation.NonNull;
 
-import com.taptm.shurikus.githubviewer.data.Repo;
 import com.taptm.shurikus.githubviewer.data.GitUserList;
+import com.taptm.shurikus.githubviewer.data.Repo;
 import com.taptm.shurikus.githubviewer.data.source.DataSource;
 
 import java.util.List;

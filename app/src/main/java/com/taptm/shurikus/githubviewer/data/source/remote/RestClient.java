@@ -1,7 +1,7 @@
 package com.taptm.shurikus.githubviewer.data.source.remote;
 
-import com.taptm.shurikus.githubviewer.data.Repo;
 import com.taptm.shurikus.githubviewer.data.GitUserList;
+import com.taptm.shurikus.githubviewer.data.Repo;
 
 import java.util.List;
 

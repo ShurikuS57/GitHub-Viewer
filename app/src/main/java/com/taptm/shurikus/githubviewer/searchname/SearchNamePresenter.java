@@ -1,8 +1,6 @@
 package com.taptm.shurikus.githubviewer.searchname;
 
 
-import android.content.Intent;
-
 import com.taptm.shurikus.githubviewer.R;
 import com.taptm.shurikus.githubviewer.data.User;
 import com.taptm.shurikus.githubviewer.data.source.DataSource;
