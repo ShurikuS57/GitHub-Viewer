@@ -58,7 +58,7 @@ public class SearchNameFragment extends Fragment implements SearchNameContract.V
 
         mEditTextUser = (EditText) root.findViewById(R.id.editText_search_name);
 
-        ListView listView = (ListView) root.findViewById(R.id.recycleView_result_name);
+        ListView listView = (ListView) root.findViewById(R.id.list_result_name);
         listView.setAdapter(mListAdapter);
 
         ImageButton searchButton = (ImageButton) root.findViewById(R.id.imageButton_search_name);

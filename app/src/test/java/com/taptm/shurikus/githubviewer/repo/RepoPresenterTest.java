@@ -44,7 +44,7 @@ public class RepoPresenterTest {
 
         when(mView.isActive()).thenReturn(true);
 
-        mRepos = FakeData.getFakeRepo();
+        mRepos = FakeData.getFakeRepos();
     }
 
     @Test
@@ -62,7 +62,7 @@ public class RepoPresenterTest {
 
         mRepoPresenter.openReposFromUserName(login);
         verify(mRepository).getRepos(eq(login), mLoadReposCallbackCaptor.capture());
-        mLoadReposCallbackCaptor.getValue().onReposLoaded(FakeData.getFakeRepo());
+        mLoadReposCallbackCaptor.getValue().onReposLoaded(FakeData.getFakeRepos());
 
     }
 
@@ -77,7 +77,7 @@ public class RepoPresenterTest {
 
     @Test
     public void openValidateRepos(){
-        Repo repo = FakeData.getFakeRepo().get(0);
+        Repo repo = FakeData.getFakeRepos().get(0);
         String repoUrl = repo.getHtml_url();
 
         mRepoPresenter.openRepoClicked(repo);
@@ -86,7 +86,7 @@ public class RepoPresenterTest {
 
     @Test
     public void openInvalidateRepos(){
-        Repo repo = FakeData.getFakeRepo().get(0);
+        Repo repo = FakeData.getFakeRepos().get(0);
 
         repo.setHtml_url("");
         mRepoPresenter.openRepoClicked(repo);

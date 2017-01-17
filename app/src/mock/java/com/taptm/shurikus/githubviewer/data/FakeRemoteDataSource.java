@@ -35,7 +35,7 @@ public class FakeRemoteDataSource implements DataSource {
 
     @Override
     public void getRepos(@NonNull String userName, @NonNull LoadReposCallback callback) {
-        List<Repo> repos = FakeData.getFakeRepo();
+        List<Repo> repos = FakeData.getFakeRepos();
         for (int i = 0; i < users.size(); i++) {
             if(users.get(i).getLogin().equals(userName)){
                 callback.onReposLoaded(repos);

@@ -27,7 +27,7 @@ public class FakeData {
         return users;
     }
 
-    public static List<Repo> getFakeRepo(){
+    public static List<Repo> getFakeRepos(){
         List<Repo> repos = new ArrayList<>();
 
         repos.add(new Repo(69785710, "course_project", "https://github.com/shurik236/course_project",

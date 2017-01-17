@@ -32,7 +32,7 @@
         android:contentDescription="@string/text_search_name"/>
 
     <ListView
-        android:id="@+id/recycleView_result_name"
+        android:id="@+id/list_result_name"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
