@@ -23,6 +23,8 @@ public interface SearchNameContract {
 
         void showMessage(@StringRes int resourceId);
 
+        void setLoadingIndicator(boolean active);
+
     }
 
 

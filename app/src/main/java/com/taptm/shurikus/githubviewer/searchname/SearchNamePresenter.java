@@ -36,6 +36,7 @@ public class SearchNamePresenter implements SearchNameContract.Presenter {
 
     @Override
     public void searchUser(String strSearch) {
+        mSearchNameView.setLoadingIndicator(true);
         if(strSearch.equals("")){
             mSearchNameView.showMessage(R.string.msg_search_not_be_empty);
             return;
@@ -45,12 +46,14 @@ public class SearchNamePresenter implements SearchNameContract.Presenter {
             @Override
             public void onUsersLoaded(List<User> users) {
                 mSearchNameView.showUsers(users);
+                mSearchNameView.setLoadingIndicator(false);
             }
 
             @Override
             public void onDataNotAvailable() {
                 mSearchNameView.showMessage(R.string.msg_nothing_found);
                 mSearchNameView.clearAdapter();
+                mSearchNameView.setLoadingIndicator(false);
             }
         });
     }

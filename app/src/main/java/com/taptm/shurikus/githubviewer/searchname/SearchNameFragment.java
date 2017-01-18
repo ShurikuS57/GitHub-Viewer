@@ -15,6 +15,7 @@ import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.ListView;
+import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -35,6 +36,8 @@ public class SearchNameFragment extends Fragment implements SearchNameContract.V
     private UsersAdapter mListAdapter;
 
     private EditText mEditTextUser;
+
+    private ProgressBar mProgressBar;
 
     public static SearchNameFragment newInstance() {
         return new SearchNameFragment();
@@ -68,6 +71,8 @@ public class SearchNameFragment extends Fragment implements SearchNameContract.V
                 mPresenter.searchUser(mEditTextUser.getText().toString());
             }
         });
+
+        mProgressBar = (ProgressBar) root.findViewById(R.id.progress_bar);
 
         return root;
     }
@@ -103,6 +108,16 @@ public class SearchNameFragment extends Fragment implements SearchNameContract.V
     @Override
     public void showMessage(@StringRes int resourceId) {
         Toast.makeText(getActivity(), resourceId, Toast.LENGTH_LONG).show();
+    }
+
+    @Override
+    public void setLoadingIndicator(boolean active) {
+        if(active){
+            clearAdapter();
+            mProgressBar.setVisibility(View.VISIBLE);
+        }else {
+            mProgressBar.setVisibility(View.GONE);
+        }
     }
 
     UserItemListener mUserItemListener = new UserItemListener() {
@@ -177,7 +192,7 @@ public class SearchNameFragment extends Fragment implements SearchNameContract.V
         }
     }
 
-    public interface UserItemListener {
+    private interface UserItemListener {
 
         void onUserClick(User clickedUser);
 
