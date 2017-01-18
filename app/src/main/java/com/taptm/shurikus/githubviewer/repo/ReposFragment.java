@@ -11,6 +11,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.ListView;
+import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -30,6 +31,8 @@ public class ReposFragment extends Fragment implements ReposContract.View {
 
     private RepoAdapter mRepoAdapter;
 
+    private ProgressBar mProgressBar;
+
     public static ReposFragment newInstance(String userName) {
         mUserName = userName;
         return new ReposFragment();
@@ -47,6 +50,8 @@ public class ReposFragment extends Fragment implements ReposContract.View {
         View root = inflater.inflate(R.layout.fragment_repos, container, false);
         ListView listView = (ListView) root.findViewById(R.id.list_repos);
         listView.setAdapter(mRepoAdapter);
+
+        mProgressBar = (ProgressBar) root.findViewById(R.id.progress_bar);
         return root;
     }
 
@@ -78,6 +83,15 @@ public class ReposFragment extends Fragment implements ReposContract.View {
     @Override
     public void showMessage(@StringRes int resourceId) {
         Toast.makeText(getActivity(), resourceId, Toast.LENGTH_LONG).show();
+    }
+
+    @Override
+    public void setLoadingIndicator(boolean active) {
+        if(active){
+            mProgressBar.setVisibility(View.VISIBLE);
+        }else {
+            mProgressBar.setVisibility(View.GONE);
+        }
     }
 
     @Override

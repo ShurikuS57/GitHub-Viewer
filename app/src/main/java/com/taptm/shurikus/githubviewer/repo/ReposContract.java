@@ -18,6 +18,8 @@ public interface ReposContract {
 
         void showMessage(@StringRes int resourceId);
 
+        void setLoadingIndicator(boolean active);
+
         boolean isActive();
     }
 

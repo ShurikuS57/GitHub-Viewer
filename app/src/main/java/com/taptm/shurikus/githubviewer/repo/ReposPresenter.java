@@ -35,6 +35,7 @@ public class ReposPresenter implements ReposContract.Presenter {
 
     @Override
     public void openReposFromUserName(String userName) {
+        mRepoView.setLoadingIndicator(true);
         if(!validateString(userName)){
             mRepoView.showMessage(R.string.msg_url_repos_no_validate);
             return;
@@ -45,10 +46,12 @@ public class ReposPresenter implements ReposContract.Presenter {
             @Override
             public void onReposLoaded(List<Repo> repos) {
                 mRepoView.showRepos(repos);
+                mRepoView.setLoadingIndicator(false);
             }
 
             @Override
             public void onDataNotAvailable() {
+                mRepoView.setLoadingIndicator(false);
                 mRepoView.showMessage(R.string.msg_no_data_from_server);
             }
         });
