@@ -36,11 +36,12 @@ public class SearchNamePresenter implements SearchNameContract.Presenter {
 
     @Override
     public void searchUser(String strSearch) {
-        mSearchNameView.setLoadingIndicator(true);
         if(strSearch.equals("")){
             mSearchNameView.showMessage(R.string.msg_search_not_be_empty);
             return;
         }
+        mSearchNameView.setLoadingIndicator(true);
+
         mRepository.searchUsers(strSearch, new DataSource.LoadUsersCallback() {
 
             @Override

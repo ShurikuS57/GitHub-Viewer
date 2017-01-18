@@ -35,11 +35,12 @@ public class ReposPresenter implements ReposContract.Presenter {
 
     @Override
     public void openReposFromUserName(String userName) {
-        mRepoView.setLoadingIndicator(true);
         if(!validateString(userName)){
             mRepoView.showMessage(R.string.msg_url_repos_no_validate);
             return;
         }
+
+        mRepoView.setLoadingIndicator(true);
 
         mRepository.getRepos(userName, new DataSource.LoadReposCallback() {
 
