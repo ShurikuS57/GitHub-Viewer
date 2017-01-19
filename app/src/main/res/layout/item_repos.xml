@@ -25,6 +25,7 @@
         app:layout_constraintHorizontal_bias="0.38"
         tools:layout_constraintRight_creator="1"
         android:textStyle="bold"
+        android:textColor="@android:color/black"
         android:textSize="16sp"/>
 
     <TextView
