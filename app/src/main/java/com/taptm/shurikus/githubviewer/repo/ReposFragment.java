@@ -157,7 +157,13 @@ public class ReposFragment extends Fragment implements ReposContract.View {
             textNameRepo.setText(repo.getName());
 
             TextView textDescriptionRepo = (TextView) rowView.findViewById(R.id.text_repo_description);
-            textDescriptionRepo.setText(repo.getDescription());
+            String repoDescription = repo.getDescription();
+            if(repoDescription == null || repoDescription.equals("")){
+                textDescriptionRepo.setVisibility(View.GONE);
+            }else {
+                textDescriptionRepo.setVisibility(View.VISIBLE);
+                textDescriptionRepo.setText(repo.getDescription());
+            }
 
             TextView textContStars = (TextView) rowView.findViewById(R.id.text_count_starts);
             textContStars.setText(String.valueOf(repo.getStargazers_count()));
@@ -168,6 +174,9 @@ public class ReposFragment extends Fragment implements ReposContract.View {
             }else {
                 imageFork.setImageResource(R.drawable.ic_book);
             }
+
+            TextView textLang = (TextView) rowView.findViewById(R.id.text_lang);
+            textLang.setText(repo.getLanguage());
 
             rowView.setOnClickListener(new View.OnClickListener() {
                 @Override

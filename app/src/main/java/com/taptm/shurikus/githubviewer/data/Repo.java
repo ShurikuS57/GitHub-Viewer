@@ -15,13 +15,16 @@ public class Repo {
 
     private boolean fork;
 
-    public Repo(int id, String name, String html_url, String description, int stargazers_count, boolean fork) {
+    private String language;
+
+    public Repo(int id, String name, String html_url, String description, int stargazers_count, boolean fork, String language) {
         this.id = id;
         this.name = name;
         this.html_url = html_url;
         this.description = description;
         this.stargazers_count = stargazers_count;
         this.fork = fork;
+        this.language = language;
     }
 
 
@@ -71,5 +74,13 @@ public class Repo {
 
     public void setFork(boolean fork) {
         this.fork = fork;
+    }
+
+    public String getLanguage() {
+        return language;
+    }
+
+    public void setLanguage(String language) {
+        this.language = language;
     }
 }
