@@ -10,6 +10,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
+import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.ProgressBar;
 import android.widget.TextView;
@@ -160,6 +161,13 @@ public class ReposFragment extends Fragment implements ReposContract.View {
 
             TextView textContStars = (TextView) rowView.findViewById(R.id.text_count_starts);
             textContStars.setText(String.valueOf(repo.getStargazers_count()));
+
+            ImageView imageFork = (ImageView) rowView.findViewById(R.id.image_fork);
+            if(repo.isFork()){
+                imageFork.setImageResource(R.drawable.ic_fork);
+            }else {
+                imageFork.setImageResource(R.drawable.ic_book);
+            }
 
             rowView.setOnClickListener(new View.OnClickListener() {
                 @Override

@@ -13,12 +13,15 @@ public class Repo {
 
     private int stargazers_count;
 
-    public Repo(int id, String name, String html_url, String description, int stargazers_count) {
+    private boolean fork;
+
+    public Repo(int id, String name, String html_url, String description, int stargazers_count, boolean fork) {
         this.id = id;
         this.name = name;
         this.html_url = html_url;
         this.description = description;
         this.stargazers_count = stargazers_count;
+        this.fork = fork;
     }
 
 
@@ -60,5 +63,13 @@ public class Repo {
 
     public void setStargazers_count(int stargazers_count) {
         this.stargazers_count = stargazers_count;
+    }
+
+    public boolean isFork() {
+        return fork;
+    }
+
+    public void setFork(boolean fork) {
+        this.fork = fork;
     }
 }

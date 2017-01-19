@@ -31,13 +31,13 @@ public class FakeData {
         List<Repo> repos = new ArrayList<>();
 
         repos.add(new Repo(69785710, "course_project", "https://github.com/shurik236/course_project",
-                null, 0));
+                null, 0, true));
 
         repos.add(new Repo(70168376, "demo-task-1", "https://github.com/shurik236/demo-task-1",
-                "Демонстрационная задача  «Сложить два числа»", 0));
+                "Демонстрационная задача  «Сложить два числа»", 0, false));
 
         repos.add(new Repo(70177558, "shurik236.github.io", "https://github.com/shurik236/shurik236.github.io",
-                null, 15));
+                null, 15, false));
 
         return repos;
     }
