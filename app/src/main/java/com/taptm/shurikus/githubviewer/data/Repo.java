@@ -17,7 +17,9 @@ public class Repo {
 
     private String language;
 
-    public Repo(int id, String name, String html_url, String description, int stargazers_count, boolean fork, String language) {
+    private int forks_count;
+
+    public Repo(int id, String name, String html_url, String description, int stargazers_count, boolean fork, String language, int forks_count) {
         this.id = id;
         this.name = name;
         this.html_url = html_url;
@@ -25,6 +27,7 @@ public class Repo {
         this.stargazers_count = stargazers_count;
         this.fork = fork;
         this.language = language;
+        this.forks_count = forks_count;
     }
 
 
@@ -82,5 +85,13 @@ public class Repo {
 
     public void setLanguage(String language) {
         this.language = language;
+    }
+
+    public int getForks_count() {
+        return forks_count;
+    }
+
+    public void setForks_count(int forks_count) {
+        this.forks_count = forks_count;
     }
 }

@@ -178,6 +178,9 @@ public class ReposFragment extends Fragment implements ReposContract.View {
             TextView textLang = (TextView) rowView.findViewById(R.id.text_lang);
             textLang.setText(repo.getLanguage());
 
+            TextView textForkCount = (TextView) rowView.findViewById(R.id.text_count_fork);
+            textForkCount.setText(String.valueOf(repo.getForks_count()));
+
             rowView.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
