@@ -7,6 +7,7 @@ import com.taptm.shurikus.githubviewer.data.source.DataSource;
 import com.taptm.shurikus.githubviewer.data.source.remote.FakeData;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 
 public class FakeRemoteDataSource implements DataSource {
@@ -35,14 +36,12 @@ public class FakeRemoteDataSource implements DataSource {
 
     @Override
     public void getRepos(@NonNull String userName, @NonNull LoadReposCallback callback) {
-        List<Repo> repos = FakeData.getFakeRepos();
-        for (int i = 0; i < users.size(); i++) {
-            if(users.get(i).getLogin().equals(userName)){
-                callback.onReposLoaded(repos);
-                return;
-            }else {
-                callback.onDataNotAvailable();
-            }
+        HashMap<String, List<Repo>> usersRepos = FakeData.getFakeRepos();
+        List<Repo> repoList = usersRepos.get(userName);
+        if(repoList != null){
+            callback.onReposLoaded(repoList);
+        }else {
+            callback.onDataNotAvailable();
         }
     }
 

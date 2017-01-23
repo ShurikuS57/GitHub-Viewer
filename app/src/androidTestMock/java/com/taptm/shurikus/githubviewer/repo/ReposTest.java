@@ -34,7 +34,7 @@ public class ReposTest {
 
     @Test
     public void showRepos_DisplayedInUi() throws Exception {
-        List<Repo> repos = FakeData.getFakeRepos();
+        List<Repo> repos = FakeData.getFakeRepos().get("shurik236");
         User user = FakeData.getFakeUsers().get(0);
 
 

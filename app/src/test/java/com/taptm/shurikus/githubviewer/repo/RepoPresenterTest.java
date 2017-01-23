@@ -15,6 +15,7 @@ import org.mockito.Captor;
 import org.mockito.Mock;
 import org.mockito.MockitoAnnotations;
 
+import java.util.HashMap;
 import java.util.List;
 
 import static org.mockito.Matchers.eq;
@@ -44,7 +45,9 @@ public class RepoPresenterTest {
 
         when(mView.isActive()).thenReturn(true);
 
-        mRepos = FakeData.getFakeRepos();
+        HashMap<String, List<Repo>> reposMap = FakeData.getFakeRepos();
+
+        mRepos = reposMap.get("shurik236");
     }
 
     @Test
@@ -62,7 +65,7 @@ public class RepoPresenterTest {
 
         mRepoPresenter.openReposFromUserName(login);
         verify(mRepository).getRepos(eq(login), mLoadReposCallbackCaptor.capture());
-        mLoadReposCallbackCaptor.getValue().onReposLoaded(FakeData.getFakeRepos());
+        mLoadReposCallbackCaptor.getValue().onReposLoaded(FakeData.getFakeRepos().get("shurik236"));
 
     }
 
@@ -77,7 +80,7 @@ public class RepoPresenterTest {
 
     @Test
     public void openValidateRepos(){
-        Repo repo = FakeData.getFakeRepos().get(0);
+        Repo repo = FakeData.getFakeRepos().get("shurik236").get(0);
         String repoUrl = repo.getHtml_url();
 
         mRepoPresenter.openRepoClicked(repo);
@@ -86,7 +89,7 @@ public class RepoPresenterTest {
 
     @Test
     public void openInvalidateRepos(){
-        Repo repo = FakeData.getFakeRepos().get(0);
+        Repo repo = FakeData.getFakeRepos().get("shurik236").get(0);
 
         repo.setHtml_url("");
         mRepoPresenter.openRepoClicked(repo);

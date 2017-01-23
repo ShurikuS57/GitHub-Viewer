@@ -57,7 +57,7 @@ public class SearchNameTest {
     @Test
     public void checkSerchName_CheckOpenRepos(){
         User user = FakeData.getFakeUsers().get(0);
-        List<Repo> repos = FakeData.getFakeRepos();
+        List<Repo> repos = FakeData.getFakeRepos().get("shurik236");
 
         onView(withId(R.id.editText_search_name)).perform(clearText(), typeText(user.getLogin()));
         onView(withId(R.id.imageButton_search_name)).perform(click());
